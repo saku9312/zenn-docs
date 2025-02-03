@@ -14,7 +14,7 @@ published: true
     5. ローカルサーバーを選択
     6. 「Active Directory ドメインサービス」と「DNSサービス」を選択
     7. インストール開始
-    8. 大体４０分ぐらい待つ
+    8. 大体40分ぐらい待つ
 
 ## ★Active Directory の設定
 
