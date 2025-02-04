@@ -20,6 +20,7 @@ Outlook上でメールの検索を行った場合に、差出人の表示だけ�
 - 種類：REG_DWORD
 - キー値：1
 
+
     @echo off
     reg add "HKEY_CURRENT_USER\software\policies\Microsoft\office\16.0\outlook\search" -v DisableServerAssistedSearch /t REG_DWORD /d 1
     pause
