@@ -179,12 +179,12 @@ Query OK, 1 row affected (0.044 sec)
 ユーザーの指定は、'ユーザー名'@'locaohost' IDENTIFIED BY 'パスワード'で行う。
 このシングルクォーテーションは必須。
 ```
-MariaDB [(none)]> CREATE USER 'saku'@'localhost' IDENTIFIED BY 'yusaku';
+MariaDB [(none)]> CREATE USER 'ユーザー名'@'localhost' IDENTIFIED BY 'パスワード';
 Query OK, 0 rows affected (0.072 sec)
 ```
 6. 新規テーブルに先ほど作成したユーザーの権限を追加する
 ```
-MariaDB [(none)]> GRANT ALL ON wp.* TO 'saku'@'localhost' WITH GRANT OPTION;
+MariaDB [(none)]> GRANT ALL ON wp.* TO 'ユーザー名'@'localhost' WITH GRANT OPTION;
 Query OK, 0 rows affected (0.004 sec)
 ```
 7. 権限情報を更新
@@ -286,7 +286,7 @@ Query OK, 1 row affected (0.627 sec)
 ```
 7. ユーザーの権限付与と有効化
 ```
-MariaDB [(none)]> GRANT ALL ON wordpress.* TO 'saku'@'localhost' IDENTIFIED BY 'yusaku';
+MariaDB [(none)]> GRANT ALL ON wordpress.* TO 'さっき作ったユーザー名'@'localhost' IDENTIFIED BY 'yusaku';
 Query OK, 0 rows affected (0.466 sec)
 
 MariaDB [(none)]> FLUSH PRIVILEGES;
