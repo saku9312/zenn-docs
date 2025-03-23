@@ -31,24 +31,6 @@ WordPress ホスティングチームでは、こうした推奨されていた�
 $ apt install php-gd php-zip php-intl php-imagick php-curl php-dom php-mbstring -y
 ```
 
-場合によってimagickのエラーだけ、以下のスクリプトが必要になるとのこと。
-```
-$ dnf install --enablerepo=epel,powertools ImageMagick ImageMagick-devel
-$ dnf install --enablerepo=epel php-devel php-pear make
-$ pecl install imagick
-
-$ echo "extension=imagick.so" > /etc/php.d/20-imagick.ini
-$ vi /etc/php.d/20-imagick.ini
-extension=imagick.so
-
-$ cd /usr/lib64/php/modules
-$ chmod 755 imagick.so
-$ ls -lag imagick.so
--rwxr-xr-x 1 root root 1646872 2022-06-27 12:27 imagick.so
-
-$ systemctl restart nginx
-```
-
 最終的にnginxのサービス再起動をする。
 ```
 $ systemctl restart nginx
