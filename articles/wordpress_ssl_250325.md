@@ -114,3 +114,6 @@ https://kinsta.com/jp/blog/wordpress-login-url/
 ## まとめ
 これでSSL化も完了したため、WordPressの環境構築に関してはほぼ終了した。
 あとはバックアップを都度取得し、非常時に復旧できるように設定を追加したい。
+
+## 参考ページ
+https://qiita.com/shin4488/items/8738e13b92143c88aab6
