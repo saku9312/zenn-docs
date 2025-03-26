@@ -80,6 +80,21 @@ If you like Certbot, please consider supporting our work by:
 $ sudo systemctl restart nginx
 ```
 
+## 証明書の定期更新
+Let's Encrypt は3か月で証明書の期限が切れてしまうため、cronを使って定期的に更新をするように仕込む。
+
+1. cron に設定を行う（rootで実行できるようにユーザー指定）
+```
+$ sudo crontab -u root -e
+    # 以下の内容を追記(毎月初日の4時に実行、nginxの再起動)
+    00 04 01 * * certbot renew && systemctl restart nginx
+```
+2. 設定内容の確認
+```
+$ sudo crontab -u root -l
+```
+
+これで証明書の更新が切れることにびくびくしなくても良くなった。
 
 ## サイトアドレスの変更
 前回、WordPressにアクセスした際の表示アドレスを変更するため、wp-config.phpを修正した。
