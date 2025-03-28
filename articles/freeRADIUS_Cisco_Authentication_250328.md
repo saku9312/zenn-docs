@@ -12,7 +12,7 @@ RADIUSサーバーってどうやって動かすの？
 そのあたりも含めて記載する。
 
 ## 検証環境
-- Ubuntu 23.04(Proxmox VE CT)
+- Ubuntu 23.04(ProxmoxVE CT)
 - Cisco Catalyst 2960CX-8TC-L(Version 15.2(4)E5)
 
 ## 検証手順
