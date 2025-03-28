@@ -1,5 +1,5 @@
 ---
-title: "WordPressをGoogle CloudのEC2で構築する"
+title: "WordPressをGoogle CloudのCEで構築する"
 emoji: "🎉"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
@@ -8,14 +8,16 @@ published: true
 ## はじめに
 もともとDocker上のコンテナでWordPressを立ち上げていたが、SSL化のところで手間取ったので、まずはコンテナを使わずにローカルですべて一から入れてみた。
 
+2025.03.28 AWSに引っ張られてEC2と書いていることに気付く…CEに表記変更。
+
 ## 構築環境
-- Google Cloud EC2
+- Google Cloud CE
 - Ubuntu 24.04LTS
 - nginx 1.24.0
 - mariadb 10.11.8
-- php
+- php 8.3
 
-## EC2のFree Tier（無料枠）
+## Google Cloud CEのFree Tier（無料枠）
 Google Cloudでは常時無料枠があり、以下の条件に当てはまれば基本的に費用はかからない。
 - CPUがe2-micro
 - リージョンがus-west1（オレゴン）,us-central1（アイオワ）,us-east1（サウスカロライナ）のどれか
@@ -24,7 +26,7 @@ Google Cloudでは常時無料枠があり、以下の条件に当てはまれ�
 
 あとは固定のグローバルIPも取得可能だが、動いているコンテナに割り当てていない（動作していない）と費用がかかることに注意。
 
-## EC2のVMインスタンス作成
+## CEのVMインスタンス作成
 今回は以下の構成でまず作成してみる。
 - リージョン：us-west1
 - CPU：e2-micro
@@ -68,7 +70,7 @@ WordPressは最初HTTPでのアクセスになるため、HTTPのトラフィッ
 ![](https://storage.googleapis.com/zenn-user-upload/1a7edde38089-20250320.png)
 
 ## スワップ領域の作成
-EC2で立ち上げたインスタンスでは、スワップ領域が作成されていない。
+CEで作成したインスタンスでは、スワップ領域が作成されていない。
 メモリも1GBで心もとないので、プラスで1GBスワップ領域を作成しておきたい。
 
 1. スワップ領域の状態を確認
