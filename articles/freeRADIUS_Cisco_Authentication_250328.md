@@ -15,7 +15,7 @@ RADIUSサーバーってどうやって動かすの？
 - Ubuntu 23.04(Proxmox VE CT)
 - Cisco Catalyst 2960CX-8TC-L(Version 15.2(4)E5)
 
-## 検証工程
+## 検証手順
 以下の内容で検証を開始する。
 1. ProxmoxVEを使用してUbuntuのコンテナを作成し、freeRADIUSとufwをインストールする。
 2. CiscoスイッチにRADIUS認証の設定を追加する。
