@@ -1,5 +1,5 @@
 ---
-title: "OSPFの動作をあらためてまとめる"
+title: "CiscoのOSPF設定（同エリア）"
 emoji: "🎉"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
