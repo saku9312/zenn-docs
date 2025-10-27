@@ -1,5 +1,5 @@
 ---
-title: "Accops HyWorks8.03 検証環境作成"
+title: "Accops HyWorks 検証環境作成"
 emoji: "🎉"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
