@@ -28,11 +28,13 @@ TriCasterなどのメーカーであるNewTek社が開発し、映像・音声�
 # 構成①：同セグメントでの映像・音声伝送
 ## 構成図
 同セグメントでのNDIを使った映像・音声伝送を実施。
-＜構成画像＞
+![](https://storage.googleapis.com/zenn-user-upload/6dd1719b25c2-20251112.png)
 
 ## NDI Toolsのインストール
 コントロール用PCに、「NDI Tools」をインストールする。
 1. https://ndi.video/tools/ より、NDI Toolsをダウンロードする。今回はWindows版。
+![](https://storage.googleapis.com/zenn-user-upload/4479f814e140-20251112.png)
+
 2. 画面の表示に沿ってインストールを実施。基本設定で進める。
 3. NDI Tools を起動する。 
 
@@ -43,14 +45,24 @@ TriCasterなどのメーカーであるNewTek社が開発し、映像・音声�
 
 ## NDI Toolsの起動、設定
 1. WebCam をクリックして起動。
+![](https://storage.googleapis.com/zenn-user-upload/a19c9e85a9aa-20251112.png)
+
 2. どこでもいいが、Video1の歯車アイコン＞Pixel8a を選択する。
+![](https://storage.googleapis.com/zenn-user-upload/043b757c8504-20251112.png)
+
 3. スマートフォンの映像が表示されればOK。
 
 ## OBS、DistroAVのインストール
 1. OBS Studioをインストールする。
+
 2. DistroAVをインストールする。これはOBSにNDIソースを入力するために必要なプラグイン。
+![](https://storage.googleapis.com/zenn-user-upload/b20e9b9f666a-20251112.png)
+
 3. OBSを起動し、ソースとして「NDI Source」を選択。
+![](https://storage.googleapis.com/zenn-user-upload/788077007c44-20251112.png)
+
 4. プロパティからNDIソース（今回はPixel8a）を選択し、映像が表示されれば完了。
+![](https://storage.googleapis.com/zenn-user-upload/03d1aed3ec5c-20251112.png)
 
 ## まとめ
 同セグメントでの場合は、特にネットワーク設定は不要。
@@ -59,26 +71,39 @@ TriCasterなどのメーカーであるNewTek社が開発し、映像・音声�
 # 構成②：別セグメントからの映像伝送
 ## 構成図
 別セグメントでのNDIを使った映像・音声伝送を実施。先ほどのスマートフォンの映像・音声と別セグメント上のPCの画面キャプチャをOBSに入力する。
-＜構成画像＞
+![](https://storage.googleapis.com/zenn-user-upload/927bffcec766-20251112.png)
 
 ## キャプチャPCにNDI Toolsのインストール
 今回は映像入力はないため、OBSおよびDistroAVのインストールは不要。
 
 ## キャプチャPCのNDI Tools設定
 1. NDI Toolsを起動する。
+
 2. 「Screen Capture」を選択すると、自動的に画面キャプチャをNDIで転送が始まる。
+![](https://storage.googleapis.com/zenn-user-upload/65e4c37138ca-20251112.png)
 
 ## コントロール用PCの設定
 別セグメントのソースを入力するには、IPの指定が必要。
 1. NDI Toolsを起動する。
+
 2. 「Access Manager」を選択し、「External Source」のタブへ移動する。
+![](https://storage.googleapis.com/zenn-user-upload/7ddb3775c4d5-20251112.png)
+
 3. IPアドレス横の＋をクリックし、「Device IP Address」に、キャプチャPCのIPアドレスを入力する。
+![](https://storage.googleapis.com/zenn-user-upload/496fed6987ba-20251112.png)
+
 4. OKを押すと、受け付ける端末のIPが登録される。
+![](https://storage.googleapis.com/zenn-user-upload/46438416ce37-20251112.png)
 
 ## 受信の確認
 1. NDI Toolsの「Discovery」で、キャプチャPCの映像が入力されているか確認する。
+![](https://storage.googleapis.com/zenn-user-upload/369b9adb7747-20251112.png)
+
 2. NDI Toolsの「WebCam」から、キャプチャPCのソースを選択して、映像が表示されるか確認する。
+![](https://storage.googleapis.com/zenn-user-upload/0c2af54a7674-20251112.png)
+
 3. NDI Toolsの「Router」から、「Source」の番号で右クリックし、「Configure」から入力ソースを選択して表示を確認する。
+![](https://storage.googleapis.com/zenn-user-upload/b887c851bc8d-20251112.png)
 
 ## OBSの設定
 入力ソースは以下のパターンで設定が可能。
