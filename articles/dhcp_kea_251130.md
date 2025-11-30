@@ -1,6 +1,6 @@
 ---
 title: "DHCPサーバー（kea）で複数セグメントへのIP配布環境を構築"
-emoji: "🎥"
+emoji: "💻"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
 published: true
@@ -82,7 +82,7 @@ $ sudo systemctl enable kea-dhcp4
 ```
 
 ## ファイアウォールの設定
-1. 53/udpを開放しておく。
+1. 67/udp、68/udpを開放しておく。
 ```
 $ sudo firewall-cmd --add-port=67/udp --permanent
 $ sudo firewall-cmd --add-port=68/udp --permanent
