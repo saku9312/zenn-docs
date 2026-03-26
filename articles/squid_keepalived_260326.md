@@ -394,7 +394,7 @@ ip a
 仮想IPが片方だけに割り当てられていることを確認したら、ブラウザからアクセスできることを確認します。
 ![](https://storage.googleapis.com/zenn-user-upload/f4cd7ad0633c-20260326.png)
  
-6.	障害時の切り替わりを確認する
+## 6.	障害時の切り替わりを確認する
 クライアントへ仮想IPでプロキシサーバーを登録します。
 ![](https://storage.googleapis.com/zenn-user-upload/1dc97fba5069-20260326.png)
 
