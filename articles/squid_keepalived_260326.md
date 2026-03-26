@@ -380,7 +380,7 @@ vi /etc/keepalived/keepalived.conf
     virtual_ipaddressの下に追加（自分のIPも入れる）
     unicast_peer {
         192.168.9.103
-    192.168.9.118
+        192.168.9.118
     }
 ```
 
