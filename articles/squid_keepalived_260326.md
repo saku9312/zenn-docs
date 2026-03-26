@@ -3,9 +3,9 @@ title: "冗長化したプロキシサーバー構築の検証ログ（SquidとK
 emoji: "📑"
 type: "tech"
 topics: ["Squid", "keepalived", "プロキシサーバー"]
-published: false
+published: true
 ---
-
+# はじめに
 Squidの導入案件がいくつかあるのを見かけていて、自分も触っておいた方がよいと思って検証をしてみました。
 せっかくなので、冗長性の担保とブラックリストでのフィルタリングを行ってみます。
 
