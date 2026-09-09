@@ -87,3 +87,5 @@ Cisco(config-if)# ip directed-broadcast
 
 前にいた企業でも、マジックパケットはWindowsのデバイスマネージャーから無効にしていたし（Wake On Magic Packet)、
 普段使う必要はない機能ではありますが、知識として知っていて損はないと感じました。
+
+![](https://static.zenn.studio/user-upload/ad5066c9977b-20260909.png)
