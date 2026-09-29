@@ -79,7 +79,7 @@ Cloudflare Tunnel（旧 Argo Tunnel）は、自宅サーバー側で動作する
 2. お名前.com で取得済みの独自ドメイン（例: `example.com`）を入力します。
 3. プラン選択画面で **[Free ($0)]** を選択して **[続行]** をクリックします。
 
-![](https://static.zenn.studio/user-upload/c801ea0be1f2-20260929.png)
+![](https://static.zenn.studio/user-upload/22d1a98e843c-20260929.png)
 
 4. 既存の DNS レコードが自動スキャンされます。既存の A レコードや MX レコード（メールサーバー設定）が検出されていることを確認し、**[続行]** をクリックします。
 
