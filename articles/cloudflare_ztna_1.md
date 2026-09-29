@@ -238,6 +238,9 @@ Cloudflare Tunnel は、**1 つの Tunnel ID に対して複数のコネクタ�
 
 この保存操作により、Cloudflare の DNS テーブルに `test-wp.example.com` の **CNAME レコードが自動生成**され、Tunnel ID（`<TUNNEL_ID>.cfargotunnel.com`）へルーティングされます。
 
+※DNSレコードが自動生成されない場合、以下の通りにレコードを設定します。
+![](https://static.zenn.studio/user-upload/40819a8c54d1-20260929.png)
+
 ---
 
 ### Step 2: DNS レコードと「プロキシ状態 (Proxy Status)」の確認
