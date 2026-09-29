@@ -5,7 +5,7 @@ type: "tech"
 topics: ["cloudflare", "wordpress", "proxmox", "ztna", "dns"]
 published: true
 ---
-
+# はじめに
 自宅サーバー（Proxmox / ESXi / ベアメタル等）で WordPress や各種 Web アプリケーションを運用する際、かつては「ルーターの 80/443 番ポートを開放し、DDNS（動的DNS）でグローバル IP を紐付ける」手法が主流でした。
 
 しかし、この従来手法には現代のセキュリティ観点において**極めて重大なリスク**が存在します。
@@ -79,8 +79,7 @@ Cloudflare Tunnel（旧 Argo Tunnel）は、自宅サーバー側で動作する
 2. お名前.com で取得済みの独自ドメイン（例: `example.com`）を入力します。
 3. プラン選択画面で **[Free ($0)]** を選択して **[続行]** をクリックします。
 
-> ![Cloudflare プラン選択画面](https://via.placeholder.com/800x400?text=Cloudflare+Free+Plan+Select)  
-> *[画像：Cloudflare のプラン選択画面で Free プランを選択する様子]*
+![](https://static.zenn.studio/user-upload/c801ea0be1f2-20260929.png)
 
 4. 既存の DNS レコードが自動スキャンされます。既存の A レコードや MX レコード（メールサーバー設定）が検出されていることを確認し、**[続行]** をクリックします。
 
@@ -98,8 +97,7 @@ Cloudflare Tunnel（旧 Argo Tunnel）は、自宅サーバー側で動作する
 3. 対象のドメインを選択し、**[他のネームサーバーを利用]** タブに切り替えます。
 4. **1 枠目** と **2 枠目** に、先ほど Cloudflare で発行されたネームサーバーアドレスをそれぞれ入力し、設定を保存します。
 
-> ![お名前.com ネームサーバー変更画面](https://via.placeholder.com/800x400?text=Onamae.com+NS+Setting)  
-> *[画像：お名前.com Navi にて Cloudflare の指定ネームサーバーを入力する画面]*
+![](https://static.zenn.studio/user-upload/97edbaafed0e-20260929.png)
 
 ---
 
@@ -111,7 +109,7 @@ Cloudflare Tunnel（旧 Argo Tunnel）は、自宅サーバー側で動作する
 ローカルのターミナル（Mac / Linux / Windows WSL）から `dig` や `nslookup` を実行し、NS レコードが Cloudflare のものに切り替わっているか確認します。
 
 ```bash
-dig NS example.com +short
+nslookup test-wp.example.com
 # 出力例:
 # ada.ns.cloudflare.com.
 # bob.ns.cloudflare.com.
@@ -123,7 +121,7 @@ Cloudflare ダッシュボード上で **「アクティブ」** 表示になれ
 
 ## 4. Proxmox (TurnKey Linux) 環境のセットアップ
 
-本構築では、ハイパーバイザとして **Proxmox VE** 上に構築された **TurnKey Linux WordPress (LXC コンテナ)** を対象とします。（※通常の Debian / Ubuntu / Docker 環境でも手順は全く同一です）
+本構築では、**Proxmox VE** 上に構築された **TurnKey Linux WordPress (LXC コンテナ)** を対象とします。（※通常の Debian / Ubuntu / Docker 環境でも手順は全く同一です）
 
 ### ネットワーク前提条件
 
@@ -144,21 +142,16 @@ Cloudflare ダッシュボード上で **「アクティブ」** 表示になれ
 1. [Cloudflare Zero Trust ダッシュボード](https://one.dash.cloudflare.com/) にアクセスします。
 2. 左サイドメニューから **[Networks] > [Tunnels]** を選択します。
 3. **[Add a tunnel]**（トンネルの追加）をクリックします。
-
-> ![Cloudflare Tunnels 一覧画面](https://via.placeholder.com/800x400?text=Cloudflare+Zero+Trust+Add+Tunnel)  
-> *[画像：Zero Trust ダッシュボードの Tunnels 設定画面]*
-
 4. トンネルタイプとして **[Cloudflared]** を選択し、**[Next]** をクリックします。
-5. トンネル名（例: `proxmox-wp-tunnel`）を入力し、**[Save tunnel]** をクリックします。
+5. トンネル名（例: `wp-tunnel`）を入力し、**[Save tunnel]** をクリックします。
+
+![](https://static.zenn.studio/user-upload/0c6797db9ca7-20260929.png)
 
 ---
 
 ### Step 2: WordPress サーバーへ `cloudflared` をインストール
 
 トンネルを作成すると、OS ごとのインストールコマンドとアクセストークン（`eyJh...`）が自動生成されます。
-
-> ![Cloudflare Connector インストール画面](https://via.placeholder.com/800x400?text=cloudflared+Install+Commands)  
-> *[画像：OS 別の cloudflared インストールコマンドが表示された画面]*
 
 Proxmox の TurnKey Linux（Debian ベース）コンテナに SSH ログインし、以下のコマンドを実行します。
 
@@ -239,9 +232,6 @@ Cloudflare Tunnel は、**1 つの Tunnel ID に対して複数のコネクタ�
 | **Type** | `HTTP` | ローカル Web サーバーのプロトコル |
 | **URL** | `192.168.10.50:80` | WordPress サーバーのローカル IP とポート |
 
-> ![Public Hostname 設定画面](https://via.placeholder.com/800x400?text=Public+Hostname+Ingress+Setting)  
-> *[画像：Public Hostname にてサブドメインとローカル IP アドレスをマッピングする設定画面]*
-
 4. **[Save hostname]** をクリックします。
 
 この保存操作により、Cloudflare の DNS テーブルに `test-wp.example.com` の **CNAME レコードが自動生成**され、Tunnel ID（`<TUNNEL_ID>.cfargotunnel.com`）へルーティングされます。
@@ -258,6 +248,8 @@ Name: test-wp
 Target: <TUNNEL_ID>.cfargotunnel.com
 Proxy status: Proxied (オレンジの雲)
 ```
+
+登録されていない場合は、手動で CNAME レコードを追加してください。
 
 #### 「オレンジの雲 (Proxied)」と「グレーの雲 (DNS Only)」の違い
 
@@ -294,8 +286,7 @@ Cloudflare エッジとブラウザ間の通信を適切に暗号化するため
 
 設定が完了したら、実際にブラウザから `https://test-wp.example.com` へアクセスします。
 
-> ![WordPress 表示成功画面](https://via.placeholder.com/800x400?text=WordPress+Public+Access+Success)  
-> *[画像：ブラウザからサブドメイン経由で WordPress のトップページが表示された画面]*
+![](https://static.zenn.studio/user-upload/6a949fe0928a-20260929.png)
 
 自宅ルーターのポートを 1 つも開けていない状態にもかかわらず、Cloudflare エッジ経由で世界中から安全にアクセスできるようになりました。
 
