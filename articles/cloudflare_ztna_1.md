@@ -232,6 +232,8 @@ Cloudflare Tunnel は、**1 つの Tunnel ID に対して複数のコネクタ�
 | **Type** | `HTTP` | ローカル Web サーバーのプロトコル |
 | **URL** | `192.168.10.50:80` | WordPress サーバーのローカル IP とポート |
 
+![](https://static.zenn.studio/user-upload/7133bb59a925-20260929.png)
+
 4. **[Save hostname]** をクリックします。
 
 この保存操作により、Cloudflare の DNS テーブルに `test-wp.example.com` の **CNAME レコードが自動生成**され、Tunnel ID（`<TUNNEL_ID>.cfargotunnel.com`）へルーティングされます。
