@@ -1,20 +1,16 @@
 ---
-title: "【第1回】ポート開放ゼロで自宅サーバーを公開する：お名前.comからCloudflare Tunnelまでの完全ガイド"
+title: "【第1回】CloudflareとGWSを使用してゼロトラストを検証してみた　～DNS設定＆Cloudflare Tunnelの設定編～"
 emoji: "🔒"
 type: "tech"
-topics: ["cloudflare", "wordpress", "proxmox", "ztna", "dns"]
+topics: ["cloudflare", "wordpress", "proxmox", "ztna", "dns", "gws"]
 published: true
 ---
 # はじめに
-自宅サーバー（Proxmox / ESXi / ベアメタル等）で WordPress や各種 Web アプリケーションを運用する際、かつては「ルーターの 80/443 番ポートを開放し、DDNS（動的DNS）でグローバル IP を紐付ける」手法が主流でした。
+Geminiでスプレッドシートを自動生成させたいと思い、いい機会なのでGWSを契約してみました。
+そのとき、「Googleアカウントを使って自宅サーバーにゼロトラストアクセスを構築できるのでは？」と思い、Cloudflare Tunnelと組み合わせて検証してみました。
 
-しかし、この従来手法には現代のセキュリティ観点において**極めて重大なリスク**が存在します。
-
-* **IP アドレスの完全露出:** 自宅の固定/動的グローバル IP アドレスが全世界に暴露され、DDoS 攻撃やポートスキャンの標的になる。
-* **ルーターおよびサーバーへの直接侵入リスク:** 万が一 Web サーバーや OS、ルーターのファームウェアにゼロデイ脆弱性が存在した場合、即座にローカルネットワーク（LAN）内部へ横移動（ラテラルムーブメント）される。
-* **二重 NAT や Carrier-Grade NAT (CGNAT) の問題:** マンション一括インターネットや v6 プラス（IPv4 over IPv6）環境では、構造的にポート開放自体が不可能なケースが増加している。
-
-本連載（全3部作）では、これらの課題を一切の追加費用をかけず、**Cloudflare Zero Trust** のエコシステムを活用して解消し、エンタープライズ級の Zero Trust Network Access（ZTNA）環境を構築する手順を徹底解説します。
+いろいろと検証をしてみたところ、DNSの移管がそもそも必要だったり、GWSの無料枠でやるにはアカウントの作り方を考える必要があったり、
+SSOではなくゼロトラストを構築するにはCloudflare Accessの設定が必要だったりと、いろいろとハマるポイントがありました。
 
 第1回となる本記事では、**お名前.com から Cloudflare への DNS 移行**、および **Cloudflare Tunnel (`cloudflared`) を用いたインバウンドポート完全閉鎖環境での Web 公開** までを解説します。
 
