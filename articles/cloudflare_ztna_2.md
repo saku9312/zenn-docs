@@ -88,7 +88,7 @@ Cloudflare Zero Trust に Google と GitHub を認証プロバイダーとして
 1. [Cloudflare Zero Trust ダッシュボード](https://one.dash.cloudflare.com/) ➔ **[Settings] > [Authentication]** を開きます。
 2. **[Identity providers]** の **[Add new]** をクリックし、**[Google Workspace]** を選択します。
 
-![](https://static.zenn.studio/user-upload/52297fda7102-20261001.png)
+![](https://static.zenn.studio/user-upload/495b637358ea-20261001.png)
 ![](https://static.zenn.studio/user-upload/8d30d63846ee-20261001.png)
 
 3. Google Cloud Console で OAuth 2.0 クライアント ID とクライアント シークレットを発行し、Cloudflare 側の画面に入力します。
@@ -263,7 +263,6 @@ add_action('init', function() {
 4. 認証成功 ➔ **WordPress のログイン画面をスルーして、そのままダッシュボードが開く！（OK）**
 
 ![](https://static.zenn.studio/user-upload/d8746e3842cd-20261001.png)
-![](https://static.zenn.studio/user-upload/41f79a8981fa-20261001.png)
 
 ---
 
