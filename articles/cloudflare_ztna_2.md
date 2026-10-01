@@ -59,7 +59,7 @@ Cloudflare Access の認証基盤（IdP）として、Google が提供する無�
 2. **[ディレクトリ] > [グループ]** を開き、**[グループを作成]** をクリックします。
 3. 管理者アクセスを許可するためのグループ（例: `testallow@example.com`）を作成し、対象のユーザーを追加します。
 
-![](https://static.zenn.studio/user-upload/d07a137ba896-20261001.png)
+![](https://static.zenn.studio/user-upload/d2a52b9b2b84-20261001.png)
 
 ---
 
