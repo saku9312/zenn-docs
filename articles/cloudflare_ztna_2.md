@@ -72,7 +72,7 @@ Cloudflare Access の認証基盤（IdP）として、Google が提供する無�
 3. **[セキュリティ] > [認証] > [パスワードレス]** を開きます。
 4. **「ユーザーがパスキーを使用してログインするのを許可する（パスワードの代わりにパスキーを使用）」** を有効化します。
 
-![](https://static.zenn.studio/user-upload/946881e3ca45-20261001.png)
+![](https://static.zenn.studio/user-upload/d77e4dfaaede-20261001.png)
 ![](https://static.zenn.studio/user-upload/5137efb4cebf-20261001.png)
 
 これにより、日常のログイン時にパスワード入力画面が表示されなくなり、PC やスマホの指紋・顔認証（Touch ID / Face ID / Windows Hello）を掲げるだけでログインできるようになります。
