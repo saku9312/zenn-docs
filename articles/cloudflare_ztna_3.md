@@ -1,5 +1,5 @@
 ---
-title: "【第2回】CloudflareとGWSを使用してゼロトラストを検証してみた　～Workers + KV + LINE Messaging APIで構築する『メアド識別型ワンタイムJITアクセス制御』～"
+title: "【第3回】CloudflareとGWSを使用してゼロトラストを検証してみた　～Workers+KV+LINEで構築するJITアクセス制御～"
 emoji: "🔒"
 type: "tech"
 topics: ["cloudflare", "wordpress", "line", "zerotrust", "security","line"]
