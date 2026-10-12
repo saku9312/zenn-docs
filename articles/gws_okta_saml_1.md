@@ -3,7 +3,7 @@ title: "Google WorkspaceとOktaの部分SAML連携(特定グループのみ)で�
 emoji: "🔐"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["okta", "googleworkspace", "saml", "sso", "ztna"]
-published: false
+published: true
 ---
 
 # はじめに：ZTNA構成のレベルアップに向けて
