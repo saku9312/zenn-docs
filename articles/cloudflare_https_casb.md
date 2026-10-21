@@ -1,5 +1,5 @@
 ---
-title: "完全無料で構築するゼロトラスト環境：Cloudflare Gatewayで行うTLS復号・QUIC制御・疑似CASBとポスチャーによるデスクトップアプリ制御"
+title: "ゼロトラスト環境：Cloudflare Gatewayで行うTLS復号・QUIC制御・疑似CASBとポスチャー制御"
 emoji: "🛡️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["cloudflare", "zerotrust", "casb", "network", "security"]
