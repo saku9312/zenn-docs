@@ -3,7 +3,7 @@ title: "ゼロトラスト環境：Cloudflare Gatewayで行うTLS復号・QUIC�
 emoji: "🛡️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["cloudflare", "zerotrust", "casb", "network", "security"]
-published: false
+published: true
 ---
 
 ## 1. はじめに
